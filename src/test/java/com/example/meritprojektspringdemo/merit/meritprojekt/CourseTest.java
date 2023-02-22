@@ -50,7 +50,7 @@ class CourseTest {
 
     @Test
     void courseGradeIllegalArgumentTest(){
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             Course course = new Course("SVENSKA 1", 100, null);
         });
     }

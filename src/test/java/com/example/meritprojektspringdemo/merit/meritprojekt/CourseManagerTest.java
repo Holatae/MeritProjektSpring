@@ -27,8 +27,8 @@ class CourseManagerTest {
             File file = new File(basePath.toString(), realTestSSN);
 
             assertTrue(file.exists());
-            assertEquals("info.coolchatserver.merit.Course{name='SVENSKA 1', grade='A', coursePoints=100, gradeMerit=20.0}", CourseManager.readCourses(realTestSSN).get(0).toString());
-            assertEquals("info.coolchatserver.merit.Course{name='SVENSKA 2', grade='C', coursePoints=100, gradeMerit=15.0}", CourseManager.readCourses(realTestSSN).get(1).toString());
+            assertEquals("Course{name='SVENSKA 1', grade='A', coursePoints=100, gradeMerit=20.0}", CourseManager.readCourses(realTestSSN).get(0).toString());
+            assertEquals("Course{name='SVENSKA 2', grade='C', coursePoints=100, gradeMerit=15.0}", CourseManager.readCourses(realTestSSN).get(1).toString());
 
         } catch (IllegalArgumentException e) {
             throw new RuntimeException(e);

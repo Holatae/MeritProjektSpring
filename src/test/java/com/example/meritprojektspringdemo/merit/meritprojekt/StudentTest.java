@@ -14,8 +14,8 @@ class StudentTest {
         student.addCourse(new Course("SVENSKA 1", 100, "A"));
         student.addCourse(new Course("PROGRAMMERING 1", 100, "E"));
 
-        assertEquals("info.coolchatserver.merit.Course{name='SVENSKA 1', grade='A', coursePoints=100, gradeMerit=20.0}", student.getCourses().get(0).toString());
-        assertEquals("info.coolchatserver.merit.Course{name='PROGRAMMERING 1', grade='E', coursePoints=100, gradeMerit=10.0}", student.getCourses().get(1).toString());
+        assertEquals("Course{name='SVENSKA 1', grade='A', coursePoints=100, gradeMerit=20.0}", student.getCourses().get(0).toString());
+        assertEquals("Course{name='PROGRAMMERING 1', grade='E', coursePoints=100, gradeMerit=10.0}", student.getCourses().get(1).toString());
     }
 
     @Test
@@ -37,7 +37,7 @@ class StudentTest {
         student.addCourse(new Course("PROGRAMMERING 1", 100, "E"));
         student.removeCourseFromIndex(1);
 
-        assertEquals("info.coolchatserver.merit.Course{name='SVENSKA 1', grade='A', coursePoints=100, gradeMerit=20.0}", student.getCourses().get(0).toString());
+        assertEquals("Course{name='SVENSKA 1', grade='A', coursePoints=100, gradeMerit=20.0}", student.getCourses().get(0).toString());
         assertThrows(IndexOutOfBoundsException.class, () -> {
             student.getCourses().get(1).getName();
         });

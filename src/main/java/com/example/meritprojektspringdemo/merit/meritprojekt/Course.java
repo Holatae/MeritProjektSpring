@@ -46,7 +46,10 @@ public class Course {
         this.gradeMerit = gradeMerit;
     }
 
-    public Course(@NotNull String name, int coursePoints, @NotNull String grade) {
+    public Course(@NotNull String name, int coursePoints, String grade) {
+        if (grade == null) {
+            throw new IllegalArgumentException();
+        }
         this.name = name;
         this.grade = grade;
         this.coursePoints = coursePoints;
@@ -80,7 +83,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "info.coolchatserver.merit.Course{" +
+        return "Course{" +
                 "name='" + name + '\'' +
                 ", grade='" + grade + '\'' +
                 ", coursePoints=" + coursePoints +

@@ -21,7 +21,7 @@ public class MeritController {
         ModelAndView modelAndView;
 
         try {
-            modelAndView = new ModelAndView("index");
+            modelAndView = new ModelAndView("merit");
             Student student = meritService.checkIfStudentIsValid(SSN);
             modelAndView.addObject("student", student);
             return modelAndView;
@@ -37,14 +37,14 @@ public class MeritController {
     @PostMapping("/{SSN}")
     public @ResponseBody ModelAndView addCourse(@PathVariable String SSN, @ModelAttribute("htmlCourse") Course course) {
         Student student = meritService.addCourse(SSN, course);
-        ModelAndView modelAndView = new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("merit");
         modelAndView.addObject("student", student);
         return modelAndView;
     }
 
     @PostMapping("/{SSN}/removeCourse")
     public @ResponseBody ModelAndView removeCourses(@PathVariable String SSN, @RequestParam Map<String, String> check) {
-        ModelAndView modelAndView = new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("merit");
         modelAndView.addObject("student", meritService.removeCourse(SSN, check));
         return modelAndView;
     }

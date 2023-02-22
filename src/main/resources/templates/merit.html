@@ -31,7 +31,10 @@
                         <option value="E">E</option>
                         <option value="F">F</option>
                         <option value="-">-</option>
-                    </select><button name="addCourse" class="btn btn-primary m-3" type="submit">Lägg till Kurs</button>
+                    </select>
+                    <div class="text-center">
+                    <button name="addCourse" class="btn btn-primary m-3" type="submit">Lägg till Kurs</button>
+                    </div>
                     <p>Extra Merit</p><select id="extraMerit" class="form-select form-control">
                         <option value="0" selected="">0</option>
                         <option value="0.5">0,5</option>
@@ -48,12 +51,14 @@
                       th:action="@{/{ssn}/removeCourse(ssn=${student.getSSN()})}"
                       th:method="post">
                     <h2 class="text-center">Dina kurser</h2>
-                    <p th:each="course, index : ${student.getCourses()}"><input type="checkbox" th:name="'check[' + ${index.index} + ']'" id="">
+                    <p th:each="course, index : ${student.getCourses()}"><input type="checkbox" class="form-check-input" th:name="'check[' + ${index.index} + ']'" id="">
                         <input type="hidden" th:name="'check[' + ${index.index} + ']'" value="off"> <span th:text="${course.getName()}">Kurs</span> Poäng: <span th:text="${course.getCoursePoints()}">Poäng</span> Betyg: <span th:text="${course.getGrade()}">Betyg</span>
                     </p>
+                    <div class="center text-center">
+                    <button name="removeCourse" class="btn btn-primary btn-secondary m-2" type="submit">Ta bort kurs</button>
+                    <a href="/" class="btn btn-primary btn-danger m-2" type="button">Logga ut</a>
+                    </div>
 
-                    <button name="removeCourse" class="btn btn-primary btn-secondary m-3" type="submit">Ta bort kurs</button>
-                    <a href="/" class="btn btn-primary btn-danger m-3" type="button">Logga ut</a>
                 </form>
 
 
