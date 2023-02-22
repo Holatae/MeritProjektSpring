@@ -30,4 +30,17 @@ class StudentTest {
         assertEquals(20.0, student.calculateMerit());
     }
 
+    @Test
+    void removeCourseWithIndex1(){
+        Student student = new Student(realTestSSN);
+        student.addCourse(new Course("SVENSKA 1", 100, "A"));
+        student.addCourse(new Course("PROGRAMMERING 1", 100, "E"));
+        student.removeCourseFromIndex(1);
+
+        assertEquals("info.coolchatserver.merit.Course{name='SVENSKA 1', grade='A', coursePoints=100, gradeMerit=20.0}", student.getCourses().get(0).toString());
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            student.getCourses().get(1).getName();
+        });
+    }
+
 }
