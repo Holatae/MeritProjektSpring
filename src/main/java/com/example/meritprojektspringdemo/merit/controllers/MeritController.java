@@ -22,7 +22,7 @@ public class MeritController {
 
         try {
             modelAndView = new ModelAndView("index");
-            Student student = meritService.meritSite(SSN);
+            Student student = meritService.checkIfStudentIsValid(SSN);
             modelAndView.addObject("student", student);
             return modelAndView;
 
@@ -35,11 +35,9 @@ public class MeritController {
     }
 
     @PostMapping("/{SSN}")
-    public @ResponseBody ModelAndView calculate(@PathVariable String SSN, @ModelAttribute("htmlCourse") Course course) {
-        Student student = new Student(SSN.split("\n")[0]);
-        student.LoadStudentFromFile();
+    public @ResponseBody ModelAndView addCourse(@PathVariable String SSN, @ModelAttribute("htmlCourse") Course course) {
+        Student student = meritService.addCourse(SSN, course);
         ModelAndView modelAndView = new ModelAndView("index");
-        student.addCourse(course);
         modelAndView.addObject("student", student);
         return modelAndView;
     }
